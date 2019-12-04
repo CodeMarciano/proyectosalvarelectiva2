@@ -52,4 +52,16 @@ function get(request, response){
 
 }
 
-module.exports = {get};
+function cantidadEmpleadoPorCargo(request, response){
+    db.query(`SELECT c.nombre as cargo, COUNT(e.idEmpleado) as cantidaEmpleado
+              FROM cargo c JOIN empleado e on c.idCargo = e.idCargo
+              GROUP BY c.nombre;`,{
+                  type: sequelize.QueryTypes.SELECT
+              })
+                .then(cantidadEmpleadoPorCargo => {
+                    response.json(cantidadEmpleadoPorCargo);
+                });
+
+}
+
+module.exports = {get, cantidadEmpleadoPorCargo};
