@@ -1,0 +1,5 @@
+node_modules
+AcuaticClubMVC
+api/config/database.js
+api/node_modules
+cliente/node_modules
