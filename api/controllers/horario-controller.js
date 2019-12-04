@@ -17,6 +17,17 @@ function get(request, response){
         });
 }
 
+function getHorarioIdCargo(request, response){
+    db.query(`SELECT c.*, h.horaInicio, h.horaFin
+              FROM cargo c JOIN horario h on c.idCargo = h.idCargo
+              AND c.idCargo = :idCargo;`, {
+                replacements: { idCargo: request.params.id },
+                type: sequelize.QueryTypes.SELECT
+            })
+                .then(horarioCargo => {
+                    response.json(horarioCargo);
+                });
+}
 
 
-module.exports = {get};
+module.exports = {get, getHorarioIdCargo};
