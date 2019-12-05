@@ -8,4 +8,9 @@ module.exports = new Sequelize('kantuta_electiva', 'root', 'brian123', {
     acquire: 30000,
     idle: 10000
   },
+  define: {
+    charset: 'utf8',
+    collate: 'utf8_general_ci'
+  }
+  
 });
