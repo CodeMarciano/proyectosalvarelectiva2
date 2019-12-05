@@ -23,7 +23,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="projectinput5">Nombre:</label>
+                                        <label for="projectinput5">Cargo:</label>
                                         <input class="form-control" name="registeredOn"
                                             formControlName="nombre"
                                             type="text" required/>
@@ -31,20 +31,34 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
+                                        <label for="projectinput5">Horario:</label>
+                                        <!-- <input class="form-control" name="registeredOn"
+                                        formControlName="descripcion"
+                                        type="text" required/> -->
+                                        <select class="form-control" name="registeredOn"
+                                        formControlName="descripcion"  name="" id="">
+                                          <option value="">Mañana 10:00-12:00</option>
+                                          <option value="">Tarde 13:00-14:00</option>
+                                          <option value="">Noche 20:00-23:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
                                         <label for="projectinput5">Descripcion:</label>
                                         <input class="form-control" name="registeredOn"
                                         formControlName="descripcion"
                                         type="text" required/>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
+                                </div> -->
+                                <!-- <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="projectinput5">Imagen:</label>
                                         <input class="form-control" name="registeredOn"
                                                 formControlName="imagen"
                                                 type="file" />
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-3">  
                                     <div class="form-group"><br>
                                         <button type="submit" (click)="guardarArtita()" class="mr-1 mb-1 btn btn-outline-success btn-min-width"> {{textBtnGrd}} </button>
@@ -64,10 +78,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nombre</th>
+                                        <th>Cargo</th>
                                         <th>Descripcion</th>
-                                        <th>foto</th>
-                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let artista of Artistas;let i=index">
