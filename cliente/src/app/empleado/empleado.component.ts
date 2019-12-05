@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Empleado } from '../models/empleado.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-empleado',
