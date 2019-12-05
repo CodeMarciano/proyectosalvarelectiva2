@@ -123,3 +123,8 @@ JOIN turno t on h.idTurno = t.idTurno
 ORDER BY c.nombre, t.nombre;
 
 # JOIN empleado e on c.idCargo = e.idCargo;
+
+
+SELECT genero, count(*) as cantidadPersona
+FROM empleado
+GROUP BY genero;

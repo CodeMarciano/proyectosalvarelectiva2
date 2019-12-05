@@ -11,4 +11,18 @@ function get(request, response){
         });
 }
 
-module.exports = {get}
+function cantidadEmpleadoPorGenero(request, response){
+    db.query(`SELECT genero, count(*) as cantidadPersona
+            FROM empleado
+            GROUP BY genero;
+    `,{
+        type: sequelize.QueryTypes.SELECT
+    })
+        .then(empleadoPorGenero => {
+
+            response.json(empleadoPorGenero);
+        });
+
+}
+
+module.exports = {get, cantidadEmpleadoPorGenero}
