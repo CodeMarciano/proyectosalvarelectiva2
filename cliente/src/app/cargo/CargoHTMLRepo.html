@@ -1,0 +1,321 @@
+
+
+<div id="ReporTeGrafica" [hidden]="!show">
+    <div style="display: block">
+        <canvas baseChart 
+                [datasets] = "barChartData"
+                [labels] = "barChartLabels"
+                [options] = "barChartOptions"
+                [legend] = "barChartLegend"
+                [chartType] = "barChartType"></canvas>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Page Content -->
+<!-- ============================================================== -->
+<div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <form [formGroup]="fromArtista">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="projectinput5">Cargo:</label>
+                                        <input class="form-control" name="registeredOn"
+                                            formControlName="nombre"
+                                            type="text" required/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="projectinput5">Horario:</label>
+                                        <!-- <input class="form-control" name="registeredOn"
+                                        formControlName="descripcion"
+                                        type="text" required/> -->
+                                        <select class="form-control" name="registeredOn"
+                                        formControlName="descripcion"  name="" id="">
+                                          <option value="">Mañana 10:00-12:00</option>
+                                          <option value="">Tarde 13:00-14:00</option>
+                                          <option value="">Noche 20:00-23:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="projectinput5">Descripcion:</label>
+                                        <input class="form-control" name="registeredOn"
+                                        formControlName="descripcion"
+                                        type="text" required/>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="projectinput5">Imagen:</label>
+                                        <input class="form-control" name="registeredOn"
+                                                formControlName="imagen"
+                                                type="file" />
+                                    </div>
+                                </div> -->
+                                <div class="col-md-3">  
+                                    <div class="form-group"><br>
+                                        <button type="submit" (click)="guardarArtita()" class="mr-1 mb-1 btn btn-outline-success btn-min-width"> {{textBtnGrd}} </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row bg-title">
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Cargo</th>
+                                        <th>Descripcion</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let artista of Artistas;let i=index">
+                                    <tr>
+                                        <td>{{i + 1}}</td>
+                                        <!-- <td>{{artista.id}}</td> -->
+                                        <td class="txt-oflo">{{artista.nombre}}</td>
+                                        <td class="txt-oflo">{{artista.descripcion}}</td>
+                                        <td class="txt-oflo">{{artista.imagen}}</td>
+                                        <td>
+                                            <button (click)="viewArtista(artista.id)" class="mr-1 mb-1 btn btn-outline-success btn-min-width">Actualizar</button>&#160;
+                                            <button (click)="eliminarArtista(artista.id)" class="mr-1 mb-1 btn btn-outline-success btn-min-width">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bg-title">
+                <div class="col-md-12">
+                    <div>
+                        <div style="display: block">
+                            <canvas baseChart 
+                                    [datasets] = "barChartData"
+                                    [labels] = "barChartLabels"
+                                    [options] = "barChartOptions"
+                                    [legend] = "barChartLegend"
+                                    [chartType] = "barChartType"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-- <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+              <h4 class="page-title">Blank Page</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+              <a href="https://wrappixel.com/templates/ampleadmin/" target="_blank"
+                 class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Upgrade
+                to Pro</a>
+              <ol class="breadcrumb">
+                <li><a href="#">Dashboard</a></li>
+                <li class="active">Blank Page</li>
+              </ol>
+            </div>
+          </div> -->
+          <div class="row">
+            <!-- <div class="col-md-6">
+              <div class="white-box">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Descripcion</th>
+                      <th>foto</th>
+                      <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let artista of Artistas;let i=index">
+                    <tr>
+                      <td>{{i + 1}}</td>
+                      <td class="txt-oflo">{{artista.nombre}}</td>
+                      <td class="txt-oflo">{{artista.descripcion}}</td>
+                      <td class="txt-oflo">{{artista.foto}}</td>
+                      <td>
+                        btns
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-6">
+              <p class="h1">agregar </p>
+              <form action="">
+              </form>
+            </div> -->
+          </div>
+        </div>
+      <!-- </div> -->
+      
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-md-4 text-center">
+              <div class="card" >
+                <img src="https://imagenes.universia.net/gc/net/images/gente/f/fr/fra/frases_de_confianza.jpg" class="card-img-top" alt="..." width="300px">
+                <div class="card-body">
+      
+                  <div class="row">
+                    <div class="col">
+      
+                      <app-incrementador nombre="progress 1" (cambioValor)="progreso1= $event" [progreso]="progreso1"></app-incrementador>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso1" aria-valuemin="0" aria-valuemax="100" [style.width]=" progreso1 +'%'"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-4 text-center">
+              <div class="card" >
+                <img src="https://imagenes.universia.net/gc/net/images/gente/f/fr/fra/frases_de_confianza.jpg" class="card-img-top" alt="..." width="300px">
+                <div class="card-body">
+      
+                  <div class="row">
+                    <div class="col">
+      
+                      <app-incrementador nombre="progress 1" (cambioValor)="progreso2= $event" [progreso]="progreso2"></app-incrementador>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso2" aria-valuemin="0" aria-valuemax="100" [style.width]=" progreso2 +'%'"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="col-md-4 text-center">
+              <div class="card" >
+                <img src="https://imagenes.universia.net/gc/net/images/gente/f/fr/fra/frases_de_confianza.jpg" class="card-img-top" alt="..." width="300px">
+                <div class="card-body">
+      
+                  <div class="row">
+                    <div class="col">
+      
+                      <app-incrementador nombre="progress 1" (cambioValor)="progreso3= $event" [progreso]="progreso3"></app-incrementador>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.ariaValuenow]="progreso3" aria-valuemin="0" aria-valuemax="100" [style.width]=" progreso3 +'%'"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <!-- <div> -->
+      <!--      <div>-->
+      <!--        <div style="display: block">-->
+      <!--          <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">-->
+      <!--          </canvas>-->
+      <!--        </div>-->
+      <!--      </div>-->
+          <!-- </div> -->
+        </div>
+        <!-- /.container-fluid -->
+        <!-- <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com</footer> -->
+      </div>
+      
+      <!-- ============================================================== -->
+      <!-- End Page Content -->
+      <!-- ============================================================== -->
+<!--       
+    
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-body">
+    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <form [formGroup]="fromArtista">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="projectinput5">Nombre:</label>
+                                            <input class="form-control" name="registeredOn"
+                                                formControlName="nombre"
+                                                type="text" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="projectinput5">Descripcion:</label>
+                                            <input class="form-control" name="registeredOn"
+                                            formControlName="descripcion"
+                                            type="text" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="projectinput5">Imagen:</label>
+                                            <input class="form-control" name="registeredOn"
+                                                    formControlName="imagen"
+                                                    type="file" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">  
+                                        <div class="form-group"><br>
+                                            <button type="submit" (click)="guardarArtita()" class="mr-1 mb-1 btn btn-outline-success btn-min-width"> {{textBtnGrd}} </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="white-box">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Descripcion</th>
+                                            <th>foto</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let artista of Artistas;let i=index">
+                                        <tr>
+                                            <td>{{i + 1}}</td>
+                                            <td>{{artista.id}}</td>
+                                            <td class="txt-oflo">{{artista.nombre}}</td>
+                                            <td class="txt-oflo">{{artista.descripcion}}</td>
+                                            <td class="txt-oflo">{{artista.imagen}}</td>
+                                            <td>
+                                                <button (click)="viewArtista(artista.id)" class="mr-1 mb-1 btn btn-outline-success btn-min-width">Actualizar</button>&#160;
+                                                <button (click)="eliminarArtista(artista.id)" class="mr-1 mb-1 btn btn-outline-success btn-min-width">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+     -->
