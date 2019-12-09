@@ -128,3 +128,21 @@ ORDER BY c.nombre, t.nombre;
 SELECT genero, count(*) as cantidadPersona
 FROM empleado
 GROUP BY genero;
+
+INSERT empleado(idCargo, idTurnoEmpleado, ciEmpleado, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, genero, idRFID)
+VALUES (:idCargo, :idTurnoEmpleado, :ciEmpleado, :primerNombre, :segundoNombre, :apellidoPaterno, :apellidoMaterno, :fechaNacimiento, :genero, :idRFID);
+
+UPDATE empleado
+SET idCargo = :idCargo,
+    ciEmpleado = :ciEmpleado,
+    primerNombre = :primerNombre,
+    segundoNombre = :segundoNombre,
+    apellidoPaterno = :apellidoPaterno,
+    apellidoMaterno = :apellidoMaterno,
+    fechaNacimiento = :fechaNacimiento,
+    genero = :genero,
+    idRFID = :idRIFD
+WHERE idEmpleado = :idEmpleado;
+
+DELETE FROM empleado
+WHERE idEmpleado = 2;
