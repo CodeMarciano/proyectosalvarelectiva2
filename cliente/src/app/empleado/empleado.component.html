@@ -1,37 +1,219 @@
 
-<!-- ============================================================== -->
-<!-- Page Content -->
-<!-- ============================================================== -->
-<div id="page-wrapper">
-	<div class="container-fluid">
-		
-		<div class="row bg-title">
-			<div class="col-md-12">
-				<div class="white-box">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Cargo</th>
-								<th>Options</th>
-							</tr>
-						</thead>
-						<tbody *ngFor="let cargo of Cargo;let i=index">
-							<tr>
-								<td>{{i + 1}}</td>
-								<td>{{artista.id}}</td>
-								<td class="txt-oflo">{{artista.nombre}}</td>
-								<td>
-									<button (click)="viewArtista(artista.id)" class="mr-1 mb-1 btn btn-outline-success btn-min-width">Actualizar</button>&#160;
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div> 
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Empleados</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active">Empleado</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	</div>
-	<!-- /.container-fluid -->
-	<footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com</footer>
-</div>
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+    
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Lista de Empleados</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Ci</th>
+                      <th>Nombre</th>
+                      <th>Fecha Nas</th>
+                      <th>Genero</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let empleado of Empleado;let i=index">
+                    <tr>
+                      <td>{{i + 1}}</td>
+                      <td>{{empleado.ciEmpleado}}</td>
+                      <td>{{empleado.primerNombre}} {{empleado.segundoNombre}} {{empleado.apellidoPaterno}} {{empleado.apellidoMaterno}}</td>
+                      <td>{{empleado.fechaNacimiento}}</td>
+                      <td>{{empleado.genero}}</td>
+                      <td>{{empleado.genero}}</td>
+                      <!-- <td>
+                        <button (click)="listHorarioPorCargo(cargo.idCargo)" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-sm">
+                          Horario
+                        </button>
+                      </td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- AREA CHART -->
+            <!-- <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Area Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+            </div> -->
+            <!-- /.card -->
+
+            <!-- DONUT CHART -->
+            <!-- <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Donut Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+            </div> -->
+            <!-- /.card -->
+
+            <!-- PIE CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Pie Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <!-- <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas> -->
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (LEFT) -->
+          <div class="col-md-6">
+            <!-- LINE CHART -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Cantidad de Empleados por Cargo</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <!-- <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas> -->
+                  <!-- <div style="display: block"> -->
+                    <canvas baseChart 
+                            [data] = "pieChartData"
+                            [labels] = "pieChartLabels"
+                            [chartType] = "pieChartType">
+                    </canvas>
+                  <!-- </div> -->
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- BAR CHART -->
+            <!-- <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Bar Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+            </div> -->
+            <!-- /.card -->
+
+            <!-- STACKED BAR CHART -->
+            <!-- <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Stacked Bar Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="stackedBarChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+            </div> -->
+            <!-- /.card -->
+
+          </div>
+          <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
+    
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 0.0.1
+    </div>
+    <strong>Inti-Soft &#165; 2019-2025 <a href="https://www.facebook.com/profile.php?id=100012994187979">IntiSoft.bo</a>.</strong> Todos los derechos reservados.
+  </footer>
+  

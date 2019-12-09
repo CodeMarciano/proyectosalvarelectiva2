@@ -15,4 +15,7 @@ export class CargoService {
   getAll(): Observable<Cargo[]> {
     return this.httpClient.get<Cargo[]>(this.baseUrl + '/get');
   }
+  getCantidaEmpleadoPorCargo(): Observable<Cargo[]> {
+    return this.httpClient.get<Cargo[]>(this.baseUrl + '/get/cantidadempleadoporcargo');
+  }
 }

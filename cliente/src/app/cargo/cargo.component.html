@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -44,7 +45,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Cargo</th>
-                      <th>Flexible</th>
+                      <!-- <th>Flexible</th> -->
                       <th>Obciones</th>
                     </tr>
                   </thead>
@@ -52,8 +53,12 @@
                     <tr>
                       <td>{{i + 1}}</td>
                       <td>{{cargo.nombre}}</td>
-                      <td>{{i + 1}}</td>
-                      <td><span class="tag tag-success">{{i + 1}}</span></td>
+                      <!-- <td>{{i + 1}}</td> -->
+                      <td>
+                        <button (click)="listHorarioPorCargo(cargo.idCargo)" type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-sm">
+                          Horario
+                        </button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -63,8 +68,91 @@
             <!-- /.card -->
           </div>
         </div>
-		<!-- /.row -->
-		
+        <!-- /.row -->
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Cantidad de Empleados Por cargo</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Cargo</th>
+                      <th>Cantidad</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let cargoGrafica of CargoGrafica;let i=index">
+                    <tr>
+                      <td>{{i + 1}}</td>
+                      <td>{{cargoGrafica.cargo}}</td>
+                      <td>{{cargoGrafica.cantidaEmpleado}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="modal fade" id="modal-sm">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Horario</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="card-body table-responsive p-0" style="height: 300px;">
+                  <table class="table table-head-fixed">
+                    <thead>
+                      <tr>
+                        <th>Turno</th>
+                        <th>Hora Ingreso</th>
+                        <th>Hora Salida</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let horario of Horario;let i=index">
+                      <tr>
+                        <td>mañana</td>
+                        <td>{{horario.horaInicio}}</td>
+                        <td>{{horario.horaFin}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+    
 
       </div><!-- /.container-fluid -->
     </section>
@@ -78,3 +166,4 @@
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
     reserved.
   </footer>
+  

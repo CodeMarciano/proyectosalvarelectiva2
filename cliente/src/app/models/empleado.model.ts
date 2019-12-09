@@ -1,6 +1,15 @@
-import { Persona } from './persona.model';
-
-export class Empleado extends Persona {
-  public salario: number;
-  // public seguro: boolean;
+export class Empleado {
+  public idEmpleado: number;
+  public idCargo: string;
+  public idTurnoEmpleado: number;
+  public ciEmpleado: string;
+  public primerNombre: string;
+  public segundoNombre: string;
+  public apellidoPaterno: string;
+  public apellidoMaterno: string;
+  public fechaNacimiento: Date;
+  public genero: string;
+  public activo: number;
+  public cantidadPersona: number;
+  // public activo: number;
 }
